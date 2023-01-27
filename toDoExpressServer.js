@@ -19,10 +19,9 @@ const postTasks = (req, res) => {
     res.send(task);
     res.end();
 }
-const deleteCompletedTasks = (res) => {
-    tasks = tasks.filter(task => task.isCompleted == false);
-    res.send(tasks);
-    res.status(200);
+const deleteCompletedTasks = (req, res) => {
+    tasks = tasks.filter(task => task.isCompleted === false);
+    res.status(200).json(tasks);
 }
 const putTasks = (req, res) => {
     const { id } = (req.params);
